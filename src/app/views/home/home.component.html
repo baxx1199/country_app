@@ -1,0 +1,41 @@
+<section class="container">
+    <div class="container_search">
+        <div class="search">
+            <label for="inputsearch" class="icon_search"><i class="fa-solid fa-magnifying-glass"></i></label>
+            
+            <input class="inputSearch" 
+                id="inputsearch" 
+                type="text" 
+                name="bynameIn" 
+                [(ngModel)]="byNameIn" 
+                #byname
+                (input)='setName($event)'
+            placeholder="Search for a country..."  type="text">
+           
+        </div>
+        
+        <select name="selection_region" id="" (change)='setRegion($event)'  >
+            <option value="" hidden disabled selected>Filter by Region</option>
+            <option value="asia">Asia</option>
+            <option value="america">America</option>
+            <option value="africa">Africa</option>
+            <option value="europe">Europa</option>
+            <option value="oceania">Oceania</option>
+
+
+         </select>
+        
+    </div>
+    <div class="container_cards">
+        <div class="card" *ngFor="let country of countrys">
+
+            <img src="{{country.flags.png}}" alt="">
+            <div class="card_info_flag">
+                <h2 class="">{{country.name.official}}</h2>
+                <small class="label"><span class="label_weight"> Poblacion:</span> {{country.population | number}}</small>
+                <small class="label"><span class="label_weight"> Region:</span> {{country.region}}</small>
+                <small class="label"><span class="label_weight"> Capital:</span> {{country.capital}} </small>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap')
+
+    
+$principal_light:hsl(0, 0%, 98%)
+$principal_dark:hsl(207, 26%, 17%)
+
+$auxiliar_light:hsl(0, 0%, 100%)
+$auxiliar_dark:hsl(209, 23%, 22%)
+
+$text_light:hsl(200, 15%, 8%)
+$input_light:hsl(0, 0%, 52%)
+
+*
+    font-family: 'Nunito Sans', sans-serif
+    margin: 0
+    padding: 0
+
+body
+    background: $principal_light
+    
+
+body.dark_mode
+    background: $principal_dark
+
+.dark_mode_header
+    background:$principal_dark
+    color: $auxiliar_light
+    box-shadow: 0px 0px 5px 0px $input_light
+
+
+.light_mode_header
+    background:$auxiliar_light
+    color: $auxiliar_dark
+    box-shadow: 0px 0px 5px 0px $input_light
