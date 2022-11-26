@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
     providedIn: 'root'
   })
   export class ApiService{
-        $URL:string ="https://restcountries.com/v3.1"
+        $URL:string ="https://restcountries.com/v2"
         
         
 
@@ -34,7 +34,7 @@ import { catchError } from 'rxjs/operators';
         }
 
 
-        getCountryByName(nameCountry:string):Observable<ICountrymodel[]>{
+        getCountrysByName(nameCountry:string):Observable<ICountrymodel[]>{
             let dir =`${this.$URL}/name/${nameCountry}`
             return this.http.get<any>(dir)
             .pipe(
@@ -42,10 +42,27 @@ import { catchError } from 'rxjs/operators';
             );
         }
 
+        /* return a single country */
+        getCountryByName(nameCountry:string):Observable<ICountrymodel>{
+            let dir =`${this.$URL}/name/${nameCountry}`
+            return this.http.get<any>(dir)
+            .pipe(
+                catchError(this.handleError)
+            );
+            
+        }
+
         private handleError(error: HttpErrorResponse){
   
             return throwError(error.message);
           }
 
-
+    
+        getByCode(code:string[]):Observable<ICountrymodel[]>{
+            let dir=`${this.$URL}/alpha?codes=${code}`
+            return this.http.get<any>(dir)
+            .pipe(
+                catchError(this.handleError)
+            );
+        }
   }

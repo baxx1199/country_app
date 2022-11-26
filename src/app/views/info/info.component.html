@@ -1,1 +1,45 @@
-<p>info works!</p>
+
+<div class="container">
+    <div class="section_back">
+        <button class="btn_back btns_info" [routerLink]="'/'">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back</span>
+            </button>
+    </div>
+
+    
+
+    <div class="section_info" *ngIf="countryDetails[0] ;let c">
+        
+        <img class="imgFlag" src="{{c.flag}}" alt="flag of {{c.name}}">
+    
+    <div class="text_info">
+        <h2 class="name_country" >
+            {{c.name}}
+        </h2>
+        <div class="details_labels">
+            <div class="col">
+            <small> <span class="label_weight">Native name: </span> {{ c.nativeName}} </small>
+            <small> <span class="label_weight">Population: </span> {{c.population | number}} </small>
+            <small> <span class="label_weight">Region: </span> {{c.region}} </small>
+            <small> <span class="label_weight">Sub Region: </span> {{c.subregion}} </small>
+            <small> <span class="label_weight">Capital: </span> {{c.capital}} </small>
+            
+            </div>
+            
+            <div class="col">
+                <small> <span class="label_weight">Top level Domain: </span> {{c.topLevelDomain}} </small>
+                <small> <span class="label_weight">Currencies: </span> {{ getCurrencies(c.currencies)}} </small>
+                <small> <span class="label_weight">Languagues: </span> {{ getLanguagues( c.languages)}} </small>
+
+            </div>
+        </div>
+        
+        <div class="cont_borders" *ngIf="borders">
+          <h2>Border Countries: </h2> <div class="btn_borders"> <button class="btns_info btn_border" *ngFor="let border of borders" [routerLink]="'/details/'+border.name"> {{border.name}}</button></div> 
+        </div>
+
+    </div>
+
+    </div>
+</div>

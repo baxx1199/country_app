@@ -17,7 +17,7 @@
         <select name="selection_region" id="" (change)='setRegion($event)'  >
             <option value="" hidden disabled selected>Filter by Region</option>
             <option value="asia">Asia</option>
-            <option value="america">America</option>
+            <option value="americas">America</option>
             <option value="africa">Africa</option>
             <option value="europe">Europa</option>
             <option value="oceania">Oceania</option>
@@ -27,11 +27,11 @@
         
     </div>
     <div class="container_cards">
-        <div class="card" *ngFor="let country of countrys">
+        <div class="card" *ngFor="let country of countrys"  [routerLink]="'/details/'+country.name">
 
-            <img src="{{country.flags.png}}" alt="">
+            <img src="{{country.flag}}" alt="">
             <div class="card_info_flag">
-                <h2 class="">{{country.name.official}}</h2>
+                <h2 class="">{{country.name}}</h2>
                 <small class="label"><span class="label_weight"> Poblacion:</span> {{country.population | number}}</small>
                 <small class="label"><span class="label_weight"> Region:</span> {{country.region}}</small>
                 <small class="label"><span class="label_weight"> Capital:</span> {{country.capital}} </small>

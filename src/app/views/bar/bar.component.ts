@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from "../../service/theme.service";
 
 @Component({
   selector: 'app-bar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private theme:ThemeService) { }
 
   ngOnInit(): void {
+  }
+
+  change_mode(){
+    this.theme.toggleMode()
+    
   }
 
 }

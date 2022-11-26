@@ -1,13 +1,4 @@
-$principal_light:hsl(0, 0%, 98%)
-$principal_dark:hsl(207, 26%, 17%)
-
-$auxiliar_ligh:hsl(0, 0%, 100%)
-$auxiliar_dark:hsl(209, 23%, 22%)
-
-$text_light:hsl(200, 15%, 8%)
-$input_light:hsl(0, 0%, 52%)
-
-$shadow_light:#000000
+@use 'src/styles.sass' as c
 
 header
     width: 100%
@@ -16,8 +7,9 @@ header
     justify-content: space-between
     box-sizing: border-box
     align-items: center
-    height: 100px
+    height: 70px
     padding: 5px 60px
+    
    
 
     .titleBar
@@ -34,7 +26,7 @@ header
         box-sizing: border-box
         cursor: pointer
         font-size: 22px
-        color: $auxiliar_dark
+        
        
         .icon
             display: flex
@@ -43,9 +35,6 @@ header
             padding: 0 5px
             justify-content: center
             align-items: center
-          
-        .dark
-            
             
         .light
             display: none
@@ -56,3 +45,36 @@ header
             padding: 0 5px
             text-align: center
             align-items: center
+
+    .toggleCont:hover
+        background: #4d5f61
+        border-radius: 15px
+        
+
+:host-context(.light)
+    header
+        background: c.$principal_light
+        color: c.$auxiliar_dark
+        box-shadow: c.$shadow
+
+:host-context(.dark)
+    header
+        background: c.$auxiliar_dark
+        color: c.$principal_light
+        box-shadow: c.$shadow_dark
+    
+
+@media screen and ( max-width: 500px )
+        
+    header
+        padding: 10px
+        .titleBar
+            font-size: 16px
+            padding: 5px
+        
+    .toggleCont
+        max-width: fit-content
+        .icon,.labelMode
+            font-size: 16px
+            
+            

@@ -1,9 +1,10 @@
-import { DepFlags } from '@angular/compiler/src/core';
 import { Component, OnInit, ViewChild , ElementRef} from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { ThemeService,Theme } from '../../service/theme.service';
 import { ApiService } from 'src/app/service/api.service';
 import { ICountrymodel } from 'src/app/service/country.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +13,17 @@ import { ICountrymodel } from 'src/app/service/country.model';
 })
 export class HomeComponent implements OnInit {
   
+  theme:string
   @ViewChild('byname')byname:ElementRef;
   countrys:ICountrymodel[]=[];
   byNameIn:string
   region:string;
 
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService, private themeS:ThemeService) { }
 
   ngOnInit(): void {
-      
+    this.themeS.mode$.subscribe((res)=>this.theme=res)
     this.renderCountrys()
   
   }
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit {
     if(this.byNameIn===''){
       this.renderCountrys()
     }else{
-      this.api.getCountryByName(this.byNameIn).subscribe((res)=>{
+      this.api.getCountrysByName(this.byNameIn).subscribe((res)=>{
         
         this.countrys=res
         console.log(res)
@@ -60,4 +62,5 @@ export class HomeComponent implements OnInit {
     }
   }
 
+ 
 }
