@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/baxx1199/country_app)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github](https://github.com/baxx1199/country_app)
+- Live Site URL: [Country app](https://baxx1199.github.io/country_app/)
 
 ## My process
 
