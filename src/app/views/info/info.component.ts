@@ -42,7 +42,7 @@ export class InfoComponent implements OnInit {
    getCurrencies(currencie:Currency[]){
     return currencie.map(curren=>curren['name'] + " "+ curren['symbol']).join(', ');
    }
-   getLanguagues(language:Language[]){
+   getLanguages(language:Language[]){
     return language.map(l=>l['name']).join(', ');
    }
 }

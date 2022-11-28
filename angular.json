@@ -103,9 +103,15 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
   },
-  "defaultProject": "countriesApp"
+  "defaultProject": "countriesApp",
+  "cli": {
+    "analytics": "dfa157de-c604-4de9-a916-c9fdde38e19e"
+  }
 }
