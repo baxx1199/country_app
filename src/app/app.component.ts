@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   constructor(private themeS:ThemeService){}
 
   ngOnInit(){
-    this.themeS.mode$.subscribe((res)=>this.theme=res)
+    this.themeS.mode$.subscribe((res)=>{this.theme=res
+      
+    })
   }
 }

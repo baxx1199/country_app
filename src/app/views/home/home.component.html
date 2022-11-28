@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" role="main">
     <div class="container_search">
         <div class="search">
             <label for="inputsearch" class="icon_search"><i class="fa-solid fa-magnifying-glass"></i></label>
@@ -12,19 +12,9 @@
                 (input)='setName($event)'
             placeholder="Search for a country..."  type="text">
            
-        </div>
+        </div> 
         
-        <select name="selection_region" id="" (change)='setRegion($event)'  >
-            <option value="" hidden disabled selected>Filter by Region</option>
-            <option value="asia">Asia</option>
-            <option value="americas">America</option>
-            <option value="africa">Africa</option>
-            <option value="europe">Europa</option>
-            <option value="oceania">Oceania</option>
-
-
-         </select>
-        
+        <app-select-bar (region)='setRegion($event)' ></app-select-bar>
     </div>
     <div class="container_cards">
         <div class="card" *ngFor="let country of countrys"  [routerLink]="'/details/'+country.name">

@@ -7,7 +7,7 @@ import { ThemeService } from "../../service/theme.service";
   styleUrls: ['./bar.component.sass']
 })
 export class BarComponent implements OnInit {
-
+  
   constructor(private theme:ThemeService) { }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild , ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild , ElementRef, Input} from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ThemeService,Theme } from '../../service/theme.service';
@@ -35,8 +35,8 @@ export class HomeComponent implements OnInit {
   }
 
   setRegion(event:any){
-      this.region=event.target.value;
-      console.log(this.region)
+      this.region=event;
+      
       this.searchByRegion()
 
   }
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
       this.api.getCountrysByName(this.byNameIn).subscribe((res)=>{
         
         this.countrys=res
-        console.log(res)
+        
         
       })
     }

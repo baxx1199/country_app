@@ -12,9 +12,11 @@ export enum Theme {
 })
 export class ThemeService {
 
-  private mode = new BehaviorSubject<Theme>(Theme.light);
+  private mode = this.getThemeOfLocaleStorage()
 
-  constructor() {}
+  constructor() {
+    
+  }
 
   get mode$(): Observable<Theme> {
   
@@ -24,8 +26,31 @@ export class ThemeService {
   toggleMode() {
     if (this.mode.value === Theme.light) {
       this.mode.next(Theme.dark);
+      
     } else {
       this.mode.next(Theme.light);
+      
     }
+    localStorage.setItem("themeMode", JSON.stringify({theme:this.mode.value}));
+    
   }
+
+  getThemeOfLocaleStorage():BehaviorSubject<Theme>{
+    if(localStorage.getItem("themeMode")!=null){
+      let themeSave = JSON.parse( localStorage.getItem("themeMode")!);
+      let modeAux:BehaviorSubject<Theme>;
+
+        if(themeSave['theme']===Theme.light ){
+          modeAux = new BehaviorSubject<Theme>(Theme.light);
+        }else{
+  
+          modeAux = new BehaviorSubject<Theme>(Theme.dark);
+        }
+        return modeAux
+    }else{
+       return new BehaviorSubject<Theme>(Theme.light);
+    }
+ 
+  }
+  
 }

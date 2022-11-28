@@ -8,6 +8,7 @@ import { HomeComponent } from './views/home/home.component';
 import { InfoComponent } from './views/info/info.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SelectBarComponent } from './components/selectBar/select-bar/select-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     BarComponent,
     HomeComponent,
     InfoComponent,
-    routingComponents
+    routingComponents,
+    SelectBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+@use 'src/styles.sass' as c
+
+:host-context(.dark)
+    .containerSelect
+        background: c.$auxiliar_dark
+        color: c.$principal_light
+        box-shadow: c.$shadow_dark
+
+        ul
+            background: c.$auxiliar_dark
+            color: c.$principal_light
+
+            li:hover
+                background: #2a3640
+                color: c.$principal_light
+
+
+:host-context(.light) 
+    .containerSelect
+        box-shadow: c.$shadow
+
+        ul
+            background: c.$auxiliar_light
+            color: c.$auxiliar_dark
+
+            li:hover
+                background: #e0e0e0
+               
+
+
+.containerSelect
+    position: relative
+    width: 220px
+    display: flex
+    height: 40px
+    border-radius: 5px
+    align-items: center
+    box-sizing: border-box
+    cursor: pointer
+    
+    .lookSelection
+        width: 80%
+        margin: auto
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        
+        span
+            font-size: 16px
+
+    ul
+        position: absolute
+        box-sizing: border-box
+        top: 45px
+        width: 100%
+        border-radius: 5px
+        padding: 5px 10px
+        width: 100%
+        
+         
+        li
+            box-sizing: border-box
+            list-style: none
+            height: 30px
+            padding: 0px 10px
+            display: flex
+            align-items: center
+            width: 100%
+        
+            
+.no-clicked
+    display: none
+.clicked 
+    ul
+        display: block
+    

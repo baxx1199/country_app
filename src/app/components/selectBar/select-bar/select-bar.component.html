@@ -1,0 +1,16 @@
+<div class="containerSelect" (click)="displayopcion()" >
+    <div class="lookSelection">
+        <Span >{{regionSelection?(regionSelection | titlecase) :"Filter by region..."  }} </Span>
+        <i class="fa-solid fa-chevron-down"></i>
+
+    </div>
+    
+    <ul [ngClass]="{'clicked': clickBar, 'no-clicked': !clickBar}"  (pointerleave)="initalClick()">
+        <li class="itemSel" (click)='setRegion("africa")'>Africa</li>
+        <li class="itemSel" (click)='setRegion("americas")'>America</li>
+        <li class="itemSel" (click)='setRegion("asia")'>Asia</li>
+        <li class="itemSel" (click)='setRegion("europe")'>Europa</li>
+        <li class="itemSel" (click)='setRegion("oceania")'>Oceania</li>
+        
+    </ul>
+</div>

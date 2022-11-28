@@ -15,6 +15,7 @@ header
     .titleBar
         width: max-content
         padding: 10px
+        font-size: 24px
     
     .toggleCont
         display: flex
@@ -30,14 +31,13 @@ header
        
         .icon
             display: flex
-            width: max-content
+            min-width: 26.5px
             height: 100%
             padding: 0 5px
             justify-content: center
             align-items: center
             
-        .light
-            display: none
+       
      
         .labelMode
             display: flex
@@ -56,13 +56,23 @@ header
         background: c.$principal_light
         color: c.$auxiliar_dark
         box-shadow: c.$shadow
+        .toggleCont
+            .icon_light
+                display: flex
+            .icon_dark
+                display: none
 
 :host-context(.dark)
     header
         background: c.$auxiliar_dark
         color: c.$principal_light
         box-shadow: c.$shadow_dark
-    
+        .toggleCont
+        .icon_light
+            display: none
+        .icon_dark
+            display: flex
+        
 
 @media screen and ( max-width: 500px )
         
